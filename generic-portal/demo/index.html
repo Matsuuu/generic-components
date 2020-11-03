@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <link rel="stylesheet" type="text/css" href="../../demo/styles.css">
+  <script type="module" src="../../disclosure.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css">
+  <script src="https://unpkg.com/prismjs@1.20.0/prism.js"></script>
+  <style>
+
+#global-styles-portal .portal-content {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 1rem;
+    box-shadow: 1px 1px 4px #484848;
+    background: #FFF;
+}
+
+.portal-container {
+    position: relative;
+    height: 100px;
+    overflow: auto;
+}
+
+  </style>
+  <title>generic-components</title>
+</head>
+
+<body>
+  <div class="app">
+    <div class="nav">
+      <h1 class="title"><a href="/index.html">generic</a></h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/demo/demo-app.html">showcase app</a>
+          </li>
+          <li>
+            <a href="/generic-accordion/demo/index.html">generic-accordion</a>
+          </li>
+          <li>
+            <a href="/generic-alert/demo/index.html">generic-alert</a>
+          </li>
+          <li>
+            <a href="/generic-dialog/demo/index.html">generic-dialog</a>
+          </li>
+          <li>
+            <a href="/generic-disclosure/demo/index.html">generic-disclosure</a>
+          </li>
+          <li>
+            <a href="/generic-listbox/demo/index.html">generic-listbox</a>
+          </li>
+          <li>
+            <a href="/generic-radio/demo/index.html">generic-radio</a>
+          </li>
+          <li>
+            <a href="/generic-skiplink/demo/index.html">generic-skiplink</a>
+          </li>
+          <li>
+            <a href="/generic-switch/demo/index.html">generic-switch</a>
+          </li>
+          <li>
+            <a href="/generic-tabs/demo/index.html">generic-tabs</a>
+          </li>
+          <li>
+            <a href="/generic-visually-hidden/demo/index.html">generic-visually-hidden</a>
+          </li>
+          <li>
+              <a href="/generic-portal/demo/index.html">generic-portal</a>
+          </li>
+          <li>
+            <a href="https://github.com/thepassle/generic-components">Github</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main class="content">
+      <h1>generic-accordion</h1>
+      <a href="https://www.w3.org/TR/wai-aria-practices/#accordion">WAI ARIA Practices</a>
+
+      <p class="description">bbb</p>
+      <h2>API:</h2>
+      <div class="demo">
+        <generic-disclosure>
+          <button slot="toggle">Events</button>
+          <div slot="detail">
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th>name</th>
+                  <th>detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>selected-changed</td>
+                  <td>number</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </generic-disclosure>
+        <generic-disclosure>
+          <button slot="toggle">Attributes</button>
+          <div slot="detail">
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th>name</th>
+                  <th>type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>selected</td>
+                  <td>number</td>
+                </tr>
+                <tr>
+                  <td>vertical</td>
+                  <td>boolean</td>
+                </tr>
+                <tr>
+                  <td>label</td>
+                  <td>string</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </generic-disclosure>
+        <generic-disclosure>
+          <button slot="toggle">Properties</button>
+          <div slot="detail">
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th>name</th>
+                  <th>type</th>
+                </tr>
+                <tr>
+                  <td>value</td>
+                  <td>string</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>selected</td>
+                  <td>number</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </generic-disclosure>
+        <generic-disclosure>
+          <button slot="toggle">Slots</button>
+          <div slot="detail">
+            <table class="tg">
+              <thead>
+                <tr>
+                  <th>name</th>
+                  <th>description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>default</td>
+                  <td>Provide button elements and content nodes as lightdom</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </generic-disclosure>
+      </div>
+
+      <h2>Usage:</h2>
+      <p>This portal has some global styles applied in the html document</p>
+      <div class="demo">
+        <h3>Default:</h3>
+        <details>
+          <summary>Show code</summary>
+          <pre><code class="language-markup"><script type="prism-html-markup">
+<generic-portal></generic-portal>
+
+      </script></code></pre>
+        </details>
+        <div class="portal-container">
+            <h2>Generic Portal</h2>
+            <p>This is generic portal content, which will be limited by overflow limiting css ruling.</p>
+            <generic-portal id="global-styles-portal">
+                <div class="portal-content">
+                    <p>This is a generic portal with global styles</p>
+                </div>
+            </generic-portal>
+            <script>
+                document.querySelector("#global-styles-portal").addEventListener("click", () => console.log("Generic portal click", this));
+                document.querySelector(".portal-content").addEventListener("click", () => console.log("Portal content click", this));
+            </script>
+        </div>
+      </div>
+
+
+      <p>This portal component is inside a web component, and therefore a shadow dom, making the styles encapsulated</p>
+      <div class="demo">
+        <h3>Default:</h3>
+        <details>
+          <summary>Show code</summary>
+          <pre><code class="language-markup"><script type="prism-html-markup">
+<generic-portal></generic-portal>
+
+      </script></code></pre>
+        </details>
+        <div class="portal-container">
+            <h2>Generic Portal</h2>
+            <p>This portal's styling is done inside a web component and a shadow dom. Escaping the styles is hard.</p>
+            <generic-portal>
+              <web-component-inside-portal></web-component-inside-portal>
+            </generic-portal>
+
+            <script>
+                class WebComponentInsidePortal extends HTMLElement {
+                    constructor() {
+                        super();
+                        this.attachShadow({mode: "open"});
+
+                        this.shadowRoot.innerHTML = `
+<style>
+:host {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background :#FFF;
+    box-shadow: 1px 1px 4px #484848;
+}
+</style>
+                <div class="portal-content">
+                    <p>This portal was inside a web component, which was inside a portal</p>
+                </div>
+                        `;
+
+                        this.shadowRoot.querySelector(".portal-content").addEventListener("click", () => console.log("click ", this));
+                    }
+                }
+
+                customElements.define("web-component-inside-portal", WebComponentInsidePortal);
+            </script>
+        </div>
+      </div>
+
+      <script type="module" src="../../portal.js"></script>
+    </main>
+  </div>
+
+</body>
+
+</html>
